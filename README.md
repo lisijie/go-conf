@@ -8,7 +8,7 @@
 	
 ### 使用
 
-	c, err := conf.NewConfig("example.ini")
+	c, err := goconf.NewConfig("example.ini")
 	if err != nil {
 		panic(err)
 	}

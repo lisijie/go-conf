@@ -1,4 +1,4 @@
-package conf_test
+package goconf_test
 
 import (
 	"github.com/lisijie/go-conf"
@@ -7,7 +7,7 @@ import (
 
 func TestConf(t *testing.T) {
 
-	c, err := conf.NewConfig("example.ini")
+	c, err := goconf.NewConfig("example.ini")
 
 	if err != nil {
 		t.Fatal(err)

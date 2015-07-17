@@ -13,6 +13,8 @@
 		panic(err)
 	}
 	fmt.Println("test_str:", c.GetString("test_str"))
+
+	fmt.Println("noexists:", c.GetString("noexists", "default value"))
 	
 	c.SetString("foo", "bar")
 	c.Save()

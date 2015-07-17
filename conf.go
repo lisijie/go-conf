@@ -46,22 +46,28 @@ func NewConfig(fileName string) (*Config, error) {
 }
 
 // 获取一个字符串值的配置项，如果值不存在返回空字符串
-func (c *Config) GetString(key string) string {
+func (c *Config) GetString(key string, def ...string) string {
 	c.lock.RLock()
 	defer c.lock.RUnlock()
 	if v, ok := c.data[key]; ok {
 		return v
 	}
+	if len(def) > 0 {
+		return def[0]
+	}
 	return ""
 }
 
 // 获取一个整型配置项，如果出错或值不存在返回0
-func (c *Config) GetInt(key string) int {
+func (c *Config) GetInt(key string, def ...int) int {
 	c.lock.RLock()
 	defer c.lock.RUnlock()
 	if v, ok := c.data[key]; ok {
 		i, _ := strconv.Atoi(v)
 		return i
+	}
+	if len(def) > 0 {
+		return def[0]
 	}
 	return 0
 }

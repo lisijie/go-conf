@@ -14,11 +14,15 @@ func TestConf(t *testing.T) {
 	}
 
 	if c.GetString("test_str") != "hello world" {
-		t.Error("test_str not equal to hello world")
+		t.Error("test_str not equal to 'hello world'")
 	}
 
 	if c.GetInt("test_int") != 123456 {
 		t.Error("test_int not equal to 123456")
+	}
+
+	if c.GetString("noexists", "default value") != "default value" {
+		t.Error("noexists not equal to 'default value'")
 	}
 
 	c.SetString("foo", "bar")

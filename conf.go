@@ -45,6 +45,11 @@ func NewConfig(fileName string) (*Config, error) {
 	return c, nil
 }
 
+// 获取所有配置项map
+func (c *Config) GetAll() map[string]string {
+	return c.data
+}
+
 // 获取一个字符串值的配置项，如果值不存在返回空字符串
 func (c *Config) GetString(key string, def ...string) string {
 	c.lock.RLock()

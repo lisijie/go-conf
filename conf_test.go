@@ -25,15 +25,7 @@ func TestConf(t *testing.T) {
 		t.Error("noexists not equal to 'default value'")
 	}
 
-	c.SetString("foo", "bar")
-
-	if c.GetString("foo") != "bar" {
-		t.Error("foo not equal to bar")
+	if c.GetSection("foo").GetString("bar") != "abc" {
+		t.Error("foo.bar not equal to abc")
 	}
-
-	c.SetInt("foo2", 2015)
-	if c.GetInt("foo2") != 2015 {
-		t.Error("foo2 not equal to 2015")
-	}
-
 }
